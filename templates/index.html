@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Home — PizzaShop{% endblock %}
+{% block content %}
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <p class="eyebrow">Fresh pizza. simple ordering.</p>
+    <h1>Choose your pizza, fill in delivery details, and place your order quickly.</h1>
+    <p>The site makes it easy to review menu items, register once, and come back faster next time.</p>
+    <div class="hero-actions">
+      {% if session.get('user_email') %}
+        <a class="button button-primary" href="{{ url_for('profile') }}">View Profile</a>
+        <a class="button button-secondary" href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a class="button button-primary" href="{{ url_for('register') }}">Create Account</a>
+        <a class="button button-secondary" href="{{ url_for('login') }}">Login</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="hero-image" aria-hidden="true">
+    <div class="pizza-card">
+      <h2>Featured</h2>
+      <p>Classic Margherita</p>
+      <p>$12.99</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <header class="section-header">
+    <h2>Menu Highlights</h2>
+    <p>See our most popular items, prices, and special offers.</p>
+  </header>
+  <div class="feature-grid">
+    <article class="feature-card">
+      <h3>Build Your Own</h3>
+      <p>Create your pizza with fresh vegetables, meats, and cheeses.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Family Bundles</h3>
+      <p>Save with combo deals for 2–4 people.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Fast Checkout</h3>
+      <p>Easy order flow with a secure account option.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <header class="section-header">
+    <h2>Why choose PizzaShop?</h2>
+    <p>Designed for accessibility, clarity, and quick ordering.</p>
+  </header>
+  <div class="grid-two">
+    <div>
+      <h3>Easy to scan</h3>
+      <p>The navigation and page layout make it easy to find the menu, account pages, and checkout flow.</p>
+    </div>
+    <div>
+      <h3>Simple account setup</h3>
+      <p>Register once and return later with a profile menu and logout option.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <header class="section-header">
+    <h2>Get started</h2>
+    <p>If you want a polished ordering flow, create an account and try our demo checkout.</p>
+  </header>
+  <div class="footer-actions">
+    <a class="button button-primary" href="{{ url_for('register') }}">Register Now</a>
+    <a class="button button-secondary" href="{{ url_for('login') }}">Login</a>
+  </div>
+</section>
+{% endblock %}
